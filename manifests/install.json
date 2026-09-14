@@ -1,0 +1,23 @@
+{
+  "schema_version": 1,
+  "ledger_path": ".agent-dev-workflow/ownership.json",
+  "assets": [
+    { "source": "AGENTS.md", "target": "AGENTS.md" },
+    { "source": "CONTEXT-MAP.md", "target": "CONTEXT-MAP.md" },
+    { "source": "ADR-MAP.md", "target": "ADR-MAP.md" },
+    { "source": "docs/agents/domain.md", "target": "docs/agents/domain.md" },
+    { "source": "docs/agents/issue-tracker.md", "target": "docs/agents/issue-tracker.md" },
+    { "source": "docs/agents/triage-labels.md", "target": "docs/agents/triage-labels.md" },
+    { "source": "docs/contexts/CONTEXT-MAP.md", "target": "docs/contexts/CONTEXT-MAP.md" },
+    { "source": "docs/contexts/workflow/CONTEXT.md", "target": "docs/contexts/workflow/CONTEXT.md" },
+    { "source": "docs/adr/ADR-MAP.md", "target": "docs/adr/ADR-MAP.md" },
+    { "source": "docs/adr/workflow/ADR-MAP.md", "target": "docs/adr/workflow/ADR-MAP.md" },
+    { "source": "docs/adr/workflow/0001-matt-first-optional-providers.md", "target": "docs/adr/workflow/0001-matt-first-optional-providers.md" },
+    { "source": "manifests/workflow.json", "target": "manifests/workflow.json" },
+    { "source": "rules/workflow.md", "target": "rules/workflow.md" },
+    { "source": "rules/evidence.md", "target": "rules/evidence.md" },
+    { "source": "skills/reasoning-evidence/SKILL.md", "target": "skills/reasoning-evidence/SKILL.md" },
+    { "source": "skills/human-qa/SKILL.md", "target": "skills/human-qa/SKILL.md" },
+    { "source": "skills/delivery-verification/SKILL.md", "target": "skills/delivery-verification/SKILL.md" }
+  ]
+}

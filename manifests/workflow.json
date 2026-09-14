@@ -1,0 +1,94 @@
+{
+  "schema_version": 1,
+  "name": "agent-dev-workflow",
+  "description": "一套 Matt-first、repo-first 的 AI 开发工作流。",
+  "integrations": {
+    "matt": {
+      "required": true,
+      "minimum_version": "1.2.3"
+    },
+    "ecc": {
+      "required": false,
+      "minimum_version": "2.2.0"
+    }
+  },
+  "invariants": [
+    "matt-first",
+    "terminology-before-grilling",
+    "repo-first-assets",
+    "vertical-slices",
+    "one-ticket-per-fresh-context",
+    "fresh-context-review",
+    "human-acceptance",
+    "fail-loudly"
+  ],
+  "phases": [
+    {
+      "id": "align",
+      "mode": "hitl",
+      "provider": "matt",
+      "skills": ["grill-with-docs", "domain-modeling"],
+      "depends_on": [],
+      "sequence": [
+        "terminology-alignment",
+        "requirements-grilling",
+        "boundary-clarification"
+      ],
+      "terminology_gate": {
+        "per_term": ["definition", "scope", "ambiguities"],
+        "requires_explicit_confirmation": true
+      },
+      "gate": "核心术语已逐一确认定义、范围和歧义；随后才完成需求盘问与边界澄清。"
+    },
+    {
+      "id": "destination",
+      "mode": "hitl",
+      "provider": "matt",
+      "skills": ["to-spec"],
+      "depends_on": ["align"],
+      "gate": "Destination、测试缝与非目标决策均已明确。"
+    },
+    {
+      "id": "journey",
+      "mode": "hitl",
+      "provider": "matt",
+      "skills": ["to-tickets"],
+      "depends_on": ["destination"],
+      "gate": "人类已批准纵向切片及其 blocking edges。"
+    },
+    {
+      "id": "implement",
+      "mode": "afk",
+      "provider": "matt",
+      "skills": ["implement", "tdd"],
+      "depends_on": ["journey"],
+      "gate": "一个 ticket 已通过 red-green 纵向切片完成实现。"
+    },
+    {
+      "id": "auto-review",
+      "mode": "afk",
+      "provider": "matt",
+      "skills": ["code-review"],
+      "depends_on": ["implement"],
+      "fresh_context": true,
+      "gate": "标准与规格审查不存在未解决的阻断 finding。"
+    },
+    {
+      "id": "human-acceptance",
+      "mode": "hitl",
+      "provider": "core",
+      "skills": ["human-qa"],
+      "depends_on": ["auto-review"],
+      "feedback_target": "journey",
+      "gate": "人类已接受行为、测试价值、接口形状与产品质量。"
+    },
+    {
+      "id": "merge",
+      "mode": "hitl",
+      "provider": "core",
+      "skills": ["delivery-verification"],
+      "depends_on": ["human-acceptance"],
+      "gate": "必需仓库检查通过，且人类已批准合并。"
+    }
+  ]
+}

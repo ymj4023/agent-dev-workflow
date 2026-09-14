@@ -1,0 +1,16 @@
+{
+  "name": "agent-dev-workflow",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "test": "node --test",
+    "coverage": "node --test --experimental-test-coverage --test-coverage-lines=80 --test-coverage-functions=80",
+    "validate": "node scripts/adw.mjs validate",
+    "doctor": "node scripts/adw.mjs doctor",
+    "verify": "node scripts/adw.mjs verify"
+  }
+}

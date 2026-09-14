@@ -1,0 +1,17 @@
+{
+  "hooks": {
+    "Stop": [
+      {
+        "matcher": "*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node hooks/shared/delivery-guard.mjs",
+            "timeout": 30
+          }
+        ],
+        "description": "仓库契约未就绪时阻断完成"
+      }
+    ]
+  }
+}

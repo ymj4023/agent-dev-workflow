@@ -1,0 +1,13 @@
+{
+  "name": "ecc",
+  "required": false,
+  "minimum_version": "2.2.0",
+  "source_url": "https://github.com/affaan-m/ECC",
+  "source_ref": "v2.2.0",
+  "capability_skills": [
+    "verification-loop",
+    "eval-harness",
+    "security-review",
+    "contract-first"
+  ]
+}
